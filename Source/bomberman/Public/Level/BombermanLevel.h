@@ -26,4 +26,12 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int NumberOfPlayers = 0;
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "Bomberman")
+	void OnPlayersSpawned();
+
+	// Déclaration d'un événement vide
+	UFUNCTION(BlueprintImplementableEvent, Category = "Gameplay")
+	void OnPlayerSpawned(APawn* SpawnedPawn); // Cet événement peut être implémenté dans le Blueprint
+
 };

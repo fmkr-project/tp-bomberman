@@ -43,8 +43,13 @@ void ABombermanLevel::BeginPlay()
 				APlayerController* Controller = UGameplayStatics::CreatePlayer(GetWorld(), i);
 				Controller->Possess(Pawn);
 			}
+			// Appelle l'événement Blueprint après le spawn du joueur
+			OnPlayerSpawned(Pawn);
+
 		}
 	}
+	// Appeler l'événement Blueprint après le spawn des joueurs
+	OnPlayersSpawned();
 }
 
 void ABombermanLevel::OnPlayerEliminated()
