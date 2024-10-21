@@ -18,6 +18,8 @@ void ABombermanLevel::BeginPlay()
 	TArray<FInputDeviceId> ConnectedDevices;
 	UInputDeviceLibrary::GetAllConnectedInputDevices(ConnectedDevices);
 	
+	NumberOfPlayers = ConnectedDevices.Num();
+
 	TArray<AActor*> PlayerStarts;
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), APlayerStart::StaticClass(), PlayerStarts);
 
@@ -43,4 +45,9 @@ void ABombermanLevel::BeginPlay()
 			}
 		}
 	}
+}
+
+void ABombermanLevel::OnPlayerEliminated()
+{
+	NumberOfPlayers--;
 }

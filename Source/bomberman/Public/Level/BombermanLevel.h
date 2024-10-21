@@ -18,4 +18,12 @@ class BOMBERMAN_API ABombermanLevel : public ALevelScriptActor
 	
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<APawn> ToSpawn;
+
+	UFUNCTION(BlueprintCallable)
+	void OnPlayerEliminated();
+
+public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	int NumberOfPlayers = 0;
 };
